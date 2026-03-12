@@ -28,7 +28,7 @@ const features = [
   },
 ];
 
-const springTransition = { type: "spring", duration: 0.5, bounce: 0.15 };
+const springTransition = { type: "spring" as const, duration: 0.5, bounce: 0.15 };
 
 const FeaturesSection = () => {
   return (

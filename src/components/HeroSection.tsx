@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import heroOrb from "@/assets/hero-orb.png";
 
-const springTransition = { type: "spring", duration: 0.5, bounce: 0.15 };
+const springTransition = { type: "spring" as const, duration: 0.5, bounce: 0.15 };
 
 const wordVariants = {
   hidden: { opacity: 0, y: 20 },
