@@ -1,0 +1,89 @@
+import { motion } from "framer-motion";
+import heroOrb from "@/assets/hero-orb.png";
+
+const springTransition = { type: "spring", duration: 0.5, bounce: 0.15 };
+
+const wordVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { ...springTransition, delay: 0.3 + i * 0.08 },
+  }),
+};
+
+const HeroSection = () => {
+  const headline = "Computing, composed.";
+  const words = headline.split(" ");
+
+  return (
+    <section className="grain-overlay relative flex min-h-svh items-center justify-center overflow-hidden px-6">
+      {/* Orb */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 0.6, scale: 1 }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
+        className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center"
+      >
+        <img
+          src={heroOrb}
+          alt=""
+          className="h-[500px] w-[500px] animate-orb-rotate object-contain opacity-70 blur-[1px] md:h-[650px] md:w-[650px]"
+        />
+      </motion.div>
+
+      {/* Content */}
+      <div className="relative z-10 mx-auto max-w-4xl text-center">
+        <h1 className="font-display" style={{ fontSize: "clamp(2.5rem, 6vw + 1rem, 5rem)" }}>
+          {words.map((word, i) => (
+            <motion.span
+              key={i}
+              custom={i}
+              variants={wordVariants}
+              initial="hidden"
+              animate="visible"
+              className="mr-[0.3em] inline-block"
+            >
+              {word}
+            </motion.span>
+          ))}
+        </h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ ...springTransition, delay: 0.7 }}
+          className="mx-auto mt-6 max-w-[55ch] text-lg text-muted-foreground md:text-xl"
+        >
+          A minimal, performant, and open-source operating system designed for focus and flow.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ ...springTransition, delay: 0.9 }}
+          className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
+        >
+          <motion.a
+            href="#download"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            className="rounded-lg bg-primary px-8 py-4 font-display text-base font-bold text-primary-foreground shadow-primary-glow transition-shadow duration-200"
+          >
+            Download Alpha 0.1
+          </motion.a>
+          <motion.a
+            href="#features"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            className="rounded-lg border border-border px-8 py-4 font-display text-base font-bold text-foreground transition-colors duration-200 hover:border-muted-foreground"
+          >
+            Learn More
+          </motion.a>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default HeroSection;
