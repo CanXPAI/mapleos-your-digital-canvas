@@ -12,13 +12,63 @@ const wordVariants = {
   }),
 };
 
+const floatingOrbVariants = {
+  animate: (i: number) => ({
+    x: [0, 80, -60, 40, -80, 0],
+    y: [0, -70, 50, -90, 30, 0],
+    scale: [1, 1.2, 0.9, 1.1, 0.95, 1],
+    transition: {
+      duration: 20 + i * 5,
+      repeat: Infinity,
+      ease: "easeInOut" as const,
+    },
+  }),
+};
+
 const HeroSection = () => {
   const headline = "Computing, composed.";
   const words = headline.split(" ");
 
   return (
     <section className="grain-overlay relative flex min-h-svh items-center justify-center overflow-hidden px-6">
-      {/* Orb */}
+      {/* Floating green orbs */}
+      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+        {/* Main orb - large, slow drift */}
+        <motion.div
+          custom={0}
+          variants={floatingOrbVariants}
+          animate="animate"
+          className="absolute left-[15%] top-[20%] h-[120px] w-[120px] rounded-full md:h-[180px] md:w-[180px]"
+          style={{
+            background: "radial-gradient(circle, hsl(75 100% 42% / 0.35) 0%, hsl(85 100% 50% / 0.08) 60%, transparent 80%)",
+            filter: "blur(30px)",
+          }}
+        />
+        {/* Secondary orb - medium, offset path */}
+        <motion.div
+          custom={1}
+          variants={floatingOrbVariants}
+          animate="animate"
+          className="absolute right-[20%] top-[35%] h-[80px] w-[80px] rounded-full md:h-[120px] md:w-[120px]"
+          style={{
+            background: "radial-gradient(circle, hsl(75 100% 50% / 0.25) 0%, hsl(75 100% 42% / 0.05) 70%, transparent 85%)",
+            filter: "blur(20px)",
+          }}
+        />
+        {/* Small accent orb */}
+        <motion.div
+          custom={2}
+          variants={floatingOrbVariants}
+          animate="animate"
+          className="absolute bottom-[30%] left-[60%] h-[50px] w-[50px] rounded-full md:h-[70px] md:w-[70px]"
+          style={{
+            background: "radial-gradient(circle, hsl(85 100% 55% / 0.3) 0%, transparent 75%)",
+            filter: "blur(15px)",
+          }}
+        />
+      </div>
+
+      {/* Background orb image */}
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 0.6, scale: 1 }}
