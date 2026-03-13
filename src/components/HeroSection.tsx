@@ -20,7 +20,7 @@ const floatingOrbVariants = {
     transition: {
       duration: 20 + i * 5,
       repeat: Infinity,
-      ease: "easeInOut",
+      ease: "easeInOut" as const,
     },
   }),
 };
