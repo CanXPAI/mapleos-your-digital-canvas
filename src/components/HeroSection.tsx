@@ -38,10 +38,10 @@ const HeroSection = () => {
           custom={0}
           variants={floatingOrbVariants}
           animate="animate"
-          className="absolute left-[15%] top-[20%] h-[120px] w-[120px] rounded-full md:h-[180px] md:w-[180px]"
+          className="absolute left-[10%] top-[15%] h-[200px] w-[200px] rounded-full md:h-[300px] md:w-[300px]"
           style={{
-            background: "radial-gradient(circle, hsl(75 100% 42% / 0.35) 0%, hsl(85 100% 50% / 0.08) 60%, transparent 80%)",
-            filter: "blur(30px)",
+            background: "radial-gradient(circle, hsl(75 100% 50% / 0.6) 0%, hsl(85 100% 50% / 0.2) 50%, transparent 75%)",
+            filter: "blur(40px)",
           }}
         />
         {/* Secondary orb - medium, offset path */}
@@ -49,10 +49,10 @@ const HeroSection = () => {
           custom={1}
           variants={floatingOrbVariants}
           animate="animate"
-          className="absolute right-[20%] top-[35%] h-[80px] w-[80px] rounded-full md:h-[120px] md:w-[120px]"
+          className="absolute right-[15%] top-[30%] h-[150px] w-[150px] rounded-full md:h-[220px] md:w-[220px]"
           style={{
-            background: "radial-gradient(circle, hsl(75 100% 50% / 0.25) 0%, hsl(75 100% 42% / 0.05) 70%, transparent 85%)",
-            filter: "blur(20px)",
+            background: "radial-gradient(circle, hsl(75 100% 55% / 0.5) 0%, hsl(75 100% 42% / 0.15) 55%, transparent 80%)",
+            filter: "blur(35px)",
           }}
         />
         {/* Small accent orb */}
@@ -60,10 +60,10 @@ const HeroSection = () => {
           custom={2}
           variants={floatingOrbVariants}
           animate="animate"
-          className="absolute bottom-[30%] left-[60%] h-[50px] w-[50px] rounded-full md:h-[70px] md:w-[70px]"
+          className="absolute bottom-[25%] left-[55%] h-[100px] w-[100px] rounded-full md:h-[150px] md:w-[150px]"
           style={{
-            background: "radial-gradient(circle, hsl(85 100% 55% / 0.3) 0%, transparent 75%)",
-            filter: "blur(15px)",
+            background: "radial-gradient(circle, hsl(85 100% 60% / 0.45) 0%, hsl(75 100% 42% / 0.1) 60%, transparent 80%)",
+            filter: "blur(25px)",
           }}
         />
       </div>
